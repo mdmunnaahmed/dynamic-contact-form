@@ -1,0 +1,22 @@
+.form-wrapper {
+    max-width: 720px;
+    background: $white;
+    padding: 40px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+textarea.form--control {
+    height: 150px !important;
+}
+
+body {
+    background: $dark;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.statusTxt {
+    display: none;
+}
