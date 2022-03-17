@@ -13,7 +13,7 @@ if (!empty($email) && !empty($msg)) {
         if (mail($reciever, $subject, $body, $sender)) {
             echo "Your Message has been Send";
         } else {
-            echo "Sorry your message didn't sned";
+            echo "Sorry your message didn't send";
         }
     } else {
         echo "Your email is not valid";

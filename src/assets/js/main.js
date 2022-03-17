@@ -11,9 +11,11 @@ form.onsubmit = (e) => {
     xhr.open("POST", "message.php", true);
     xhr.onload = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
+            let response = xhr.response;
             if (
                 response.indexOf("Email and Password field is required") != -1 ||
-                response.indexOf("Your email is not valid")
+                response.indexOf("Your email is not valid") ||
+                response.indexOf("Sorry your message didn't send")
             ) {
                 statusTxt.style.color = "red";
             } else {
@@ -22,7 +24,6 @@ form.onsubmit = (e) => {
                     statusTxt.style.display = "none";
                 }, 3000);
             }
-            let response = xhr.response;
             statusTxt.innerText = response;
         }
     };
