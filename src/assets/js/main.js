@@ -11,8 +11,18 @@ form.onsubmit = (e) => {
     xhr.open("POST", "message.php", true);
     xhr.onload = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
+            if (
+                response.indexOf("Email and Password field is required") != -1 ||
+                response.indexOf("Your email is not valid")
+            ) {
+                statusTxt.style.color = "red";
+            } else {
+                form.reset();
+                setTimeout(() => {
+                    statusTxt.style.display = "none";
+                }, 3000);
+            }
             let response = xhr.response;
-            console.log(response);
             statusTxt.innerText = response;
         }
     };
